@@ -1,0 +1,21 @@
+{
+  "name": "test-real-quick",
+  "version": "1.0.0",
+  "description": "Testing library built from scratch in order to understand how this family of tools works under the hood.",
+  "main": "index.js",
+  "author": "didof",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "nodemon",
+    "prebuild": "rimraf ./build",
+    "build": "tsc && node build/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.4",
+    "nodemon": "^2.0.14",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
+  }
+}
