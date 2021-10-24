@@ -1,20 +1,8 @@
 import { EventEmitter } from 'events'
+import Handlers from './types/Handlers'
 import uuid from './utils/uuid'
 
-const emitter = new EventEmitter()
-
-type SuiteHandler = {
-  id: string;
-  title: string;
-}
-
-type TestHandler = {
-  id: string;
-  title: string;
-  handler: () => void;
-}
-
-type Handlers = Map<string, SuiteHandler | TestHandler>
+const emitter = new (class MapGeneratorEmitter extends EventEmitter {})()
 
 const handlers: Handlers = new Map()
 
@@ -33,7 +21,7 @@ emitter.on('add:test', ({ title, handler }) => {
   handlers.set(id, {
     id,
     title,
-    handler
+    handler,
   })
 })
 
