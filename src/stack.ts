@@ -12,4 +12,8 @@ export default new (class Stack {
   get last() {
     return this.value[this.value.length - 1]
   }
+
+  get length() {
+    return this.value.length
+  }
 })()

@@ -18,6 +18,7 @@ emitter.on('add:suite', ({ title, handler }) => {
     title,
     parentId,
     childrenIds: [],
+    depth: stack.length,
   })
 
   if (parentId && handlers.has(parentId)) {
@@ -46,6 +47,7 @@ emitter.on('add:test', ({ title, handler }) => {
     title,
     handler,
     parentId,
+    depth: stack.length,
   })
 })
 

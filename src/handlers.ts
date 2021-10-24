@@ -5,6 +5,7 @@ type Handler = {
   id: string
   title: string
   parentId?: string
+  depth: number
 }
 
 export type SuiteHandler = Handler & {
