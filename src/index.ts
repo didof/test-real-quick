@@ -1,8 +1,8 @@
 'use strict'
 
 import describe from './describe'
+import { debugEmitter } from './handlers'
 import it from './it'
-import { debugEmitter } from './eventEmitter'
 
 describe('macro description', () => {
   describe('sub description A', () => {

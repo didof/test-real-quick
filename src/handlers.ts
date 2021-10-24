@@ -1,3 +1,5 @@
+'use strict'
+
 type SuiteHandler = {
   id: string
   title: string
@@ -11,4 +13,10 @@ type TestHandler = {
 
 type Handlers = Map<string, SuiteHandler | TestHandler>
 
-export default Handlers
+const handlers: Handlers = new Map()
+
+export default handlers
+
+export function debugEmitter() {
+  console.dir(handlers)
+}

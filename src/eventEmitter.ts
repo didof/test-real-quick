@@ -1,10 +1,10 @@
+'use strict'
+
 import { EventEmitter } from 'events'
-import Handlers from './types/Handlers'
+import handlers from './handlers'
 import uuid from './utils/uuid'
 
 const emitter = new (class MapGeneratorEmitter extends EventEmitter {})()
-
-const handlers: Handlers = new Map()
 
 emitter.on('add:suite', ({ title, handler }) => {
   const id = uuid()
@@ -26,7 +26,3 @@ emitter.on('add:test', ({ title, handler }) => {
 })
 
 export default emitter
-
-export function debugEmitter() {
-  console.dir(handlers)
-}
