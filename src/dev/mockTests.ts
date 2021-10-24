@@ -7,17 +7,29 @@ describe('macro description alpha', () => {
     it('test 1A', () => {
       demand('abc').to.equal(123)
     })
+
+    it('test 2A', () => {
+      demand('abc').to.equal('abc')
+    })
   })
 
-  // describe('sub description B', () => {
-  //   it('test 1B', () => {})
-  // })
+  describe('sub description B', () => {
+    it('test 1B', () => {
+      demand([42]).to.contain(42)
+    })
+
+    it('test 1B', () => {
+      demand([]).to.contain(42)
+    })
+  })
 })
 
-// describe('macro description beta', () => {
-//   describe('sub description beta-2', () => {
-//     describe('sub description beta-3', () => {
-//       it('test beta', () => {})
-//     })
-//   })
-// })
+describe('macro description beta', () => {
+  describe('sub description beta-2', () => {
+    describe('sub description beta-3', () => {
+      it('test beta', () => {
+        demand(1).to.be.null()
+      })
+    })
+  })
+})
