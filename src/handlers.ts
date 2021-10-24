@@ -1,6 +1,6 @@
 'use strict'
 
-type Handler = {
+interface Handler {
   type: 'suite' | 'test'
   id: string
   title: string
@@ -8,26 +8,24 @@ type Handler = {
   depth: number
 }
 
-export type SuiteHandler = Handler & {
+export interface SuiteHandler extends Handler {
   type: 'suite'
   childrenIds: string[]
 }
 
-type TestHandler = Handler & {
+export interface TestResult {
+  pass: boolean
+  message: string
+}
+
+export interface TestHandler extends Handler {
   type: 'test'
   handler: () => void
-  result: {
-    pass: boolean,
-    message?: string
-  }
+  result: TestResult
 }
 
-export type Handlers = Map<string, SuiteHandler | TestHandler>
+export type HandlersMap = Map<string, SuiteHandler | TestHandler>
 
-const handlers: Handlers = new Map()
+const handlers: HandlersMap = new Map()
 
 export default handlers
-
-export function debugEmitter() {
-  console.dir(handlers)
-}

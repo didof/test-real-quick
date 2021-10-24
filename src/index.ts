@@ -1,14 +1,11 @@
 'use strict'
 
-import describe from './describe'
-import handlers, { debugEmitter } from './handlers'
-import it from './it'
+import describe from './features/describe'
+import it from './features/it'
 import run from './run'
 
-import './mockTests'
+import './dev/mockTests'
+run()
 
-run(handlers)
-
-debugEmitter()
 
 export { describe, it }

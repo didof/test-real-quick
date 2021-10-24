@@ -1,5 +1,5 @@
-import describe from './describe'
-import it from './it'
+import describe from '../features/describe'
+import it from '../features/it'
 import demand from 'must'
 
 describe('macro description alpha', () => {

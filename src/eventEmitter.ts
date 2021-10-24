@@ -1,7 +1,7 @@
 'use strict'
 
 import { EventEmitter } from 'events'
-import handlers, { SuiteHandler } from './handlers'
+import handlers, { SuiteHandler, TestHandler } from './handlers'
 import stack from './stack'
 import uuid from './utils/uuid'
 
@@ -19,7 +19,7 @@ emitter.on('add:suite', ({ title, handler }) => {
     parentId,
     childrenIds: [],
     depth: stack.length,
-  })
+  } as SuiteHandler)
 
   if (parentId && handlers.has(parentId)) {
     const parentHandler = handlers.get(parentId) as SuiteHandler
@@ -50,8 +50,9 @@ emitter.on('add:test', ({ title, handler }) => {
     depth: stack.length,
     result: {
       pass: true,
+      message: '',
     },
-  })
+  } as TestHandler)
 })
 
 export default emitter
