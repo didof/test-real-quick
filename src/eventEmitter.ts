@@ -48,6 +48,9 @@ emitter.on('add:test', ({ title, handler }) => {
     handler,
     parentId,
     depth: stack.length,
+    result: {
+      pass: true,
+    },
   })
 })
 

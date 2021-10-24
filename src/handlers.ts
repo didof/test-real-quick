@@ -16,9 +16,13 @@ export type SuiteHandler = Handler & {
 type TestHandler = Handler & {
   type: 'test'
   handler: () => void
+  result: {
+    pass: boolean,
+    message?: string
+  }
 }
 
-type Handlers = Map<string, SuiteHandler | TestHandler>
+export type Handlers = Map<string, SuiteHandler | TestHandler>
 
 const handlers: Handlers = new Map()
 

@@ -1,20 +1,13 @@
 'use strict'
 
 import describe from './describe'
-import { debugEmitter } from './handlers'
+import handlers, { debugEmitter } from './handlers'
 import it from './it'
+import run from './run'
 
-describe('macro description', () => {
-  describe('sub description A', () => {
-    it('test 1A', () => {})
-    it('test 2A', () => {})
-    it('test 3A', () => {})
-  })
+import './mockTests'
 
-  describe('sub description B', () => {
-    it('test 1B', () => {})
-  })
-})
+run(handlers)
 
 debugEmitter()
 
