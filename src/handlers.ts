@@ -1,13 +1,19 @@
 'use strict'
 
-type SuiteHandler = {
+type Handler = {
+  type: 'suite' | 'test'
   id: string
   title: string
+  parentId?: string
 }
 
-type TestHandler = {
-  id: string
-  title: string
+export type SuiteHandler = Handler & {
+  type: 'suite'
+  childrenIds: string[]
+}
+
+type TestHandler = Handler & {
+  type: 'test'
   handler: () => void
 }
 
