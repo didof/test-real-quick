@@ -14,6 +14,7 @@ import runner from './runner'
 
 const { suites } = cli.exec()
 
+runner.inject({ describe, it })
 runner.exec(suites[0])
 
 // run()
