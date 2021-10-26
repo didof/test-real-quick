@@ -10,5 +10,4 @@ const { suites } = cli.exec()
  */
 runner.inject({ demand })
 
-// TODO should run on different suites, not only one
 runner.exec(suites)
